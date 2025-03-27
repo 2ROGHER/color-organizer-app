@@ -1,0 +1,49 @@
+<main class="main-app">
+  <section class="side-bar">
+    <app-navbar
+      [activeForm]="isActive"
+      (activeFormEmitter)="handleSetActiveForm($event)"
+    ></app-navbar>
+  </section>
+
+  <main class="main">
+    <!-- [serach-bar ] cotainer-->
+    <div class="search-bar">
+      <app-filter></app-filter>
+      <app-search-bar></app-search-bar>
+    </div>
+
+    <section class="color-form">
+      <app-create-color-form
+        *ngIf="isActive && true"
+        (activeFormEmitter)="handleSetActiveForm($event)"
+      ></app-create-color-form>
+    </section>
+    <pre>
+
+</pre>
+    <div class="colors-list">
+      <app-color-list [colors]="(colors$ | async) || []"></app-color-list>
+    </div>
+  </main>
+</main>
+
+<!-- <app-navbar></app-navbar>
+
+
+
+
+<h1>HOme page done</h1>
+<h1>Color page done !</h1>
+
+
+<code>
+  <pre>
+ There are about {{
+      (colors$ | async)?.length ? (colors$ | async)?.length : 0
+    }} items of the colors</pre
+  >
+</code>
+
+<app-create-color-form> </app-create-color-form>
+<app-color-list [colors]="(colors$ | async) || []"></app-color-list> -->

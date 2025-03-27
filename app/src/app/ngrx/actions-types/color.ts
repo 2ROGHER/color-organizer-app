@@ -1,0 +1,3 @@
+export const REMOVE_COLOR = 'REMOVE COLOR BY ID';
+
+// export const SET_COLOR_STATUS = 'SET COLOR STATUS TO ONE COLOR';

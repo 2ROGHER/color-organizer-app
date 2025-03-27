@@ -1,0 +1,58 @@
+@import "../../../styles.scss";
+
+.dropdown-menu {
+  position: relative;
+  background: #1a1a1a;
+  padding: 12px;
+  border: 1px solid $base-border-color;
+  border-radius: 4px;
+  z-index: 10000;
+  overflow: hidden;
+  display: block;
+}
+
+.menu-title {
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 400;
+  gap: 4px;
+  border-bottom: 1px solid $base-color-text;
+}
+
+.menu-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 300;
+  width: 100%;
+  text-transform: capitalize;
+  margin: 14px 0;
+}
+
+.menu-list li {
+  position: relative;
+  padding: 4px;
+  align-items: center;
+  list-style-type: none;
+  display: flex;
+  gap: 6px;
+}
+
+.menu-list li span.checkbox-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-list li:hover {
+  background-color: #111;
+  cursor: pointer;
+}
+
+
+.seleted {
+  background-color: #111;
+}

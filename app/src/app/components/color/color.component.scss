@@ -1,0 +1,82 @@
+@import "../../../styles.scss";
+
+.color {
+  position: relative;
+  // background: red;
+
+  width: 220px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border: 1px solid $base-border-color;
+  border-radius: 4px;
+  padding: 16px;
+  height: 400px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.options div button {
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.options .delete-opt:hover button {
+  background: #270702;
+  border-radius: 100%;
+}
+
+
+
+.color-header {
+  margin: 8px 0;
+}
+.color-value {
+  border-radius: 50%;
+}
+.color-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.color-body p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+}
+.color-content div {
+  border: 2px solid $base-border-color;
+}
+.color-footer {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.color-date span {
+  font-size: 12px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 16px;
+  top: 54px;
+}

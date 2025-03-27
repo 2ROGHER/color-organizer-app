@@ -1,0 +1,28 @@
+/*
+ * Here we are going to create usefull name classes for change common styles
+
+*/
+
+$base-padding-8: 8px;
+$base-padding-16: 16px;
+$base-padding-32: 32px;
+
+.no-type {
+  position: relative;
+  list-style-type: none;
+}
+
+.center {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-items: center;
+}
+
+.space-between {
+  position: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+

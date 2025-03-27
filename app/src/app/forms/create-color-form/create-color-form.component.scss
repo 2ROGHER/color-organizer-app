@@ -1,0 +1,75 @@
+@import "../../../styles.scss";
+
+.form-color__create {
+  position: relative;
+  width: 456px;
+  padding: 32px;
+  border: 1px solid $base-border-color;
+  border-radius: 4px;
+  // background: none;
+}
+
+.form-color-details {
+  border: none;
+}
+.form-color-details div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 6px;
+  margin: 16px 0;
+}
+.form-color-details div label,
+.stars label,
+.rate label {
+  position: relative;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.form-color-details div input {
+  background: none;
+  color: $base-color-text;
+  padding: 12px 16px;
+  border: 1px solid $base-border-color;
+  border-radius: 4px;
+  outline: none;
+  font-size: 14px;
+}
+
+.stars,
+.rate {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 16px 0;
+}
+
+.btn__create {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn__create button {
+  padding: 12px 40px;
+  background: #000;
+  outline: none;
+  border: 1px solid $base-color-text;
+  border-radius: 4px;
+  color: $base-color-text;
+  cursor: pointer;
+  margin: 16px 0;
+  text-transform: capitalize;
+}
+
+.rate select {
+  // color: $base-bg-color;
+  background: none;
+  color: $base-color-text;
+  padding: 12px 16px;
+  border: 1px solid $base-border-color;
+  border-radius: 4px;
+  outline: none;
+  font-size: 14px;
+}

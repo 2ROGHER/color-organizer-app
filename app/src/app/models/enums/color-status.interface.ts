@@ -1,0 +1,11 @@
+export  enum ColorStatus {
+  ALL = "ALL",
+  FAVORITE = "FAVORITE",
+  DELETED = "DELETED",
+  ARCHIVED = "ARCHIVED",
+  DISABLED = "DISABLED",
+  UNLIKED = "UNLIKED",
+  VIEWED = "VIEWED",
+  UPDATED = "UPDATED",
+  CHANGED = "CHANGED",
+}

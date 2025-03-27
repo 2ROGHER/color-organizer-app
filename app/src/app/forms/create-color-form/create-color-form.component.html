@@ -1,0 +1,95 @@
+<form
+  [formGroup]="addColorForm"
+  class="form-color__create"
+>
+  <!--This [hijacks] the normal form submission mechanism and instead call the function [onSubmit]-->
+  <fieldset class="form-color-details" formGroupName="details">
+    <div class="name">
+      <label class="name-label">Name</label>
+      <input
+        type="text"
+        class="name-input"
+        name="name"
+        formControlName="name"
+        placeholder="Magenta"
+        required
+      />
+    </div>
+
+    <div class="category">
+      <label class="category-label">Category</label>
+      <input
+        type="text"
+        name="category"
+        value="{{ addColorForm }}"
+        class="category-input"
+        formControlName="category"
+        placeholder="Tech, Forest,..."
+        required
+      />
+    </div>
+
+    <div class="hex-value">
+      <label class="hex-value-label">Hexadecimal value</label>
+      <input
+        type="text"
+        class="hex-value-input"
+        name="hexValue"
+        value=""
+        formControlName="hexValue"
+        placeholder="#XXXXXX"
+        required
+      />
+    </div>
+
+    <div class="description">
+      <label class="description-label">Color descriptions</label>
+      <input
+        [ngClass]="{
+          'has-danger':
+            addColorForm.controls['details'].value.name.invalid &&
+            addColorForm.controls['details'].value.name.dirty,
+          'has-success':
+            addColorForm.controls['details'].value.name.valid &&
+            addColorForm.controls['details'].value.name.dirty
+        }"
+        type="text"
+        name="description"
+        value=""
+        class="description-input"
+        formControlName="description"
+        placeholder="Awesome color to reflect the feels and emotion..."
+        required
+      />
+    </div>
+  </fieldset>
+
+  <div class="stars">
+    <label for="" class="stars-label">Stars</label>
+    <p *ngIf="addColorForm.controls['details'].value.name.errors">
+      There are errors at [stars]
+    </p>
+
+    <app-star></app-star>
+  </div>
+
+  <div class="rate">
+    <label for="" class="rate-label">Rate</label>
+    <select class="select-rate" formControlName="rate">
+      <option selected>select an option</option>
+      <!-- <option value="2">3</option>
+      <option value="3">9</option> -->
+      <option *ngFor="let o of [1, 2, 3, 4, 5]">
+        {{ o }}
+      </option>
+    </select>
+  </div>
+
+  <div class="btn__create">
+    <button type="submit" (click)="handleActiveForm(); handleCreateNewColor()">
+      create color
+    </button>
+  </div>
+</form>
+
+
