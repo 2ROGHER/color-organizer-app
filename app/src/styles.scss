@@ -10,10 +10,11 @@ $base-font-family-inter: "Inter";
 // Base colors
 $base-bg-color: #000000;
 $base-border-color:#333;
-$base-text-color: #fffafa;
+$base-color-text: #fffafa;
 
 // Base sizes
-$base-box-border:4px;
+$base-border-box:4px;
+
 * {
   margin: 0;
   box-sizing: border-box;

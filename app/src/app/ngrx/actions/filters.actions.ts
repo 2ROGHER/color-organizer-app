@@ -11,6 +11,7 @@ export class FilterActions {
    * @returns
    */
   setSearchTerm(s: string): IAction<string> {
+    console.log('the term value is ', s);
     return {
       type: SET_SEARCH_TERM,
       payload: s,

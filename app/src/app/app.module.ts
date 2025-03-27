@@ -21,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './forms/signup/signup.component';
 import { LoginComponent } from './forms/login/login.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +40,19 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
     FilterComponent,
     LogoComponent,
 
-    SearchbarComponent,
-    SettingsComponent,
     StarComponent,
     CheckBoxComponent,
     SignupComponent,
     NavbarComponent,
+    NotFoundPageComponent,
+    SidebarComponent,
+    CreateColorFormComponent,
+    SettingsComponent,
+    SearchbarComponent,
+    FilterComponent,
+
+
+
   ],
   imports: [
     BrowserModule,

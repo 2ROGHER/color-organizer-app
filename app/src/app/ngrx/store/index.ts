@@ -24,5 +24,5 @@ import { IFilter } from '../../models/interfaces/filter.interface';
 export const rootReducer: ActionReducerMap<AppState> = {
   // colors: colorsReducer as ActionReducer<Color[], IAction<Color>>,
   colors: colorsReducer as unknown as ActionReducer<Color[], Action<string | any>>, // TODO("fixed this letter")
-  filters: filterReducer as ActionReducer<IFilter, Action<string>>,
+  filters: filterReducer as ActionReducer<IFilter<string>, Action<string>>,
 };

@@ -1,5 +1,5 @@
-export interface IFilter {
-  searchTerm: string;
-  filterValue: string;
-  sortBy: string;
+export interface IFilter <T extends string>  {
+  searchTerm: T;
+  filterValue: T;
+  sortBy: T;
 }
