@@ -3,6 +3,7 @@ import { IColorState } from '../../models/interfaces';
 import { IFilter } from '../../models/interfaces/filter.interface';
 import Color from '../../models/domain/color.model';
 import { ColorStatus } from '../../models/enums/color-status.interface';
+import { filter } from 'rxjs';
 
 // Select initial base state from [store] to [filter colors by status]
 
@@ -25,9 +26,24 @@ export const selectFilteredColors = createSelector(
       return [];
     }
 
-    if (!filters.filterValue || filters.filterValue === ColorStatus.ALL) {
-      return colors; // No aplicar filtro si es 'ALL'
+    if (filters.filteredItems.length) {
+      return colors.filter((c: Color) =>
+        filters.filteredItems.includes(c.status)
+      );
     }
+
+    if (filters.searchTerm) {
+      return colors.filter(
+        (c: Color) =>
+          c.name.toLowerCase().includes(filters.searchTerm) ||
+          c.description.toLowerCase().includes(filters.searchTerm)
+      );
+    }
+
+    if (!filters.filterValue || filters.filterValue === 'DEFAULT') {
+      return colors; // dont apply any filter with default value with 'DEFAULT'
+    }
+
 
     return colors.filter((c: Color) => c.status === filters.filterValue);
   }

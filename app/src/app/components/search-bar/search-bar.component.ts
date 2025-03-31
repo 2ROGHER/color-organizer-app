@@ -23,7 +23,7 @@ export class SearchbarComponent {
     // );
 
     this.term.valueChanges.subscribe((v) => {
-      this._filterActions.setSearchTerm(v);
+      this._store.dispatch(this._filterActions.setSearchTerm(v));
     });
   }
 }

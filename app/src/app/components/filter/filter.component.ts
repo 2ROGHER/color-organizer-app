@@ -8,7 +8,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './filter.component.scss',
 })
 export class FilterComponent {
-  filterValue: string = "";
+  filterValue: string = '';
 
   constructor(
     private _store: Store,
@@ -21,6 +21,9 @@ export class FilterComponent {
     if (e) {
       this.filterValue = e;
       this.cd.detectChanges();
+
+      // dispatch the action to filter the tasks
+      this._store.dispatch(this._filterActions.setFiltersValuesArray(e.toUpperCase()));
     }
   }
 }

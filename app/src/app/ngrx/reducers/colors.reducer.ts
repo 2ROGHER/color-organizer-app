@@ -32,7 +32,7 @@ var initialState: IColorState = {
       'Representa tecnología, confianza y estabilidad.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -45,7 +45,7 @@ var initialState: IColorState = {
       'Simboliza energía, pasión y amor.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
 
       '2025-03-03',
       '2025-03-03'
@@ -60,7 +60,7 @@ var initialState: IColorState = {
       'Evoca naturaleza, frescura y crecimiento.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -73,7 +73,7 @@ var initialState: IColorState = {
       'Refleja felicidad, optimismo y creatividad.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -85,7 +85,7 @@ var initialState: IColorState = {
       'Simboliza entusiasmo, determinación y éxito.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -97,7 +97,7 @@ var initialState: IColorState = {
       'Asociado a la realeza, creatividad y sabiduría.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -109,7 +109,7 @@ var initialState: IColorState = {
       'Representa dulzura, amor y ternura.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -121,7 +121,7 @@ var initialState: IColorState = {
       'Asociado a la sofisticación, poder y misterio.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -133,7 +133,7 @@ var initialState: IColorState = {
       'Simboliza pureza, paz y limpieza.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -145,7 +145,7 @@ var initialState: IColorState = {
       'Denota equilibrio, sobriedad y modernidad.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -157,7 +157,7 @@ var initialState: IColorState = {
       'Inspiración, tranquilidad y frescura.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -169,7 +169,7 @@ var initialState: IColorState = {
       'Refleja creatividad, modernidad y dinamismo.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -181,7 +181,7 @@ var initialState: IColorState = {
       'Simbología de originalidad y expresividad.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -193,7 +193,7 @@ var initialState: IColorState = {
       'Inspiración, tranquilidad y frescura.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -205,7 +205,7 @@ var initialState: IColorState = {
       'Refleja creatividad, modernidad y dinamismo.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -217,7 +217,7 @@ var initialState: IColorState = {
       'Simbología de originalidad y expresividad.',
       2,
       2,
-      ColorStatus.ALL,
+      ColorStatus.DEFAULT,
       '2025-03-03',
       '2025-03-03'
     ),
@@ -259,3 +259,4 @@ export const colorsReducer: ActionReducer<IColorState, IAction<Color | any>> = (
       return state;
   }
 };
+

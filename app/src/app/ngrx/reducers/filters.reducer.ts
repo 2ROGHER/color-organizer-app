@@ -1,11 +1,12 @@
 import { IAction } from '../../models/interfaces';
 import { IFilter } from '../../models/interfaces/filter.interface';
-import { SET_FILTER_VALUE, SET_SEARCH_TERM } from '../actions-types/filters';
+import { SET_FILTER_VALUE, SET_FILTERS_VALUES, SET_SEARCH_TERM } from '../actions-types/filters';
 
 const initialState: IFilter<string> = {
   searchTerm: '',
   filterValue: '',
   sortBy: '',
+  filteredItems: []
 };
 
 export const filterReducer = (
@@ -20,6 +21,15 @@ export const filterReducer = (
     case SET_FILTER_VALUE:
       return { ...state, filterValue: action.payload };
 
+    case SET_FILTERS_VALUES:
+      return {
+        ...state,
+        filteredItems: state.filteredItems.includes(action.payload) ? (
+          state.filteredItems.filter(i => i!== action.payload)
+        ): (
+          [...state.filteredItems, action.payload]
+        )
+      }
     default:
       return state;
   }

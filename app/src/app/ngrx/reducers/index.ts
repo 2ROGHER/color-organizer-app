@@ -18,3 +18,4 @@ export * from './color.reducer';
 export * from './colors.reducer';
 export * from './login.reducer';
 export * from './signup.reducer';
+export * from './filters.reducer';

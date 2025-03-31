@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IAction } from '../../models/interfaces';
-import { SET_FILTER_VALUE, SET_SEARCH_TERM } from '../actions-types/filters';
+import { SET_FILTER_VALUE, SET_FILTERS_VALUES, SET_SEARCH_TERM } from '../actions-types/filters';
 
 @Injectable()
 export class FilterActions {
@@ -30,4 +30,11 @@ export class FilterActions {
       payload: s,
     };
   }
-}
+
+  setFiltersValuesArray(s: string): IAction<string> {
+    return {
+      type: SET_FILTERS_VALUES,
+      payload: s,
+    }
+  }
+ }

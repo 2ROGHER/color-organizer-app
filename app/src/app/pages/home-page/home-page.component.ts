@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectFilteredColors } from '../../ngrx/selectors/filters.selector';
 import { FilterActions } from '../../ngrx/actions/filters.actions';
+import { ColorStatus } from '../../models/enums/color-status.interface';
 
 @Component({
   selector: 'app-home-page',
@@ -19,6 +20,7 @@ export class HomePageComponent implements OnInit {
 
   colorsList$!: Observable<Color[]>;
 
+  // This life-cycle hook is executed when the component is created.
   constructor(
     private readonly _colorsActions: ColorsActions,
     private readonly _filtersActions: FilterActions,
@@ -26,7 +28,7 @@ export class HomePageComponent implements OnInit {
   ) {
     // Select all colors registered at the store.
     // this.count$ = this._store.select(selectColorCount);
-    this._store.dispatch(this._filtersActions.setFilterValue("ALL")); // 1.First we need to [dispatch]
+    this._store.dispatch(this._filtersActions.setFilterValue(ColorStatus.DEFAULT)); // 1.First we need to [dispatch]
     this.colors$ = this._store.select(selectFilteredColors); // We need to select the filter colors
   }
 
