@@ -1,33 +1,216 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./app/styles/utils/variables" as *; // without prefix and we are using from 'variables'
 
-/* Font Family style fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@use "./app/styles/helpers/functions" as *;
+@use "./app/styles/helpers//mixins" as *;
 
-$base-font-family-inter: "Inter";
-
-// Base colors
-$base-bg-color: #000000;
-$base-border-color: #333;
-$base-color-text: #fffafa;
-
-// Base sizes
-$base-border-box: 4px;
-
-* {
-  margin: 0;
+// REmove paddings and margins from the element taking the [box model]
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+* {
+  margin: 0;
+}
 
+html,
 body {
-  font-family: $base-font-family-inter;
-  color: $base-color-text;
+  padding: 0;
+  margin: 0;
+  // or
+  // inset: 0;
+}
+// We need to set the optmized width and height to read elements to reading text
+body > div {
+  // we only to get the "wrapper" div whe the width max equal to 38rem;
+  max-width: 38rem;
+  margin: 0 auto;
+}
+body {
+  font-family: $base-font-family;
+  color: $base-inactive-color-text;
   background: #000;
 }
 
-ul {
+// we need to set the paragraphs with sans-serif, cause works better and locks better with sizing in (rem or em)
+// NOTE: It's important to know the is impresindible to use SASS when exists any value repeated
+// no more small text in box scenarios
+p {
+  font-family: sans-serif;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  margin-bottom: $base-line-height + rem;
+
+  // include here the mixin @base-font-family-sizing
+  //@include base-font-family-sizing($base-font-family); // cal as a function results: 'not serif'
+}
+
+ul,
+ol,
+li,
+menu {
   padding-inline-start: 0;
 }
 
 li {
   list-style-type: none;
 }
+
+/*
+* Heading sizes
+ h1 is 2em
+ h2 is 1.5em
+ h3 is 1.17em
+ h4 is 1em
+ h5 is 0.83em
+ h6 is 0.67em
+
+ * calc the correct [heading] with the correct ratio
+  h1 / 1.3333 = h2
+ h2 / 1.2821 = h3
+ h3 / 1.17 = h4
+ h4 / 1.2048 = h5
+ h5 / 1.2388 = h6
+*/
+
+// mastering-sass/ch02/scss/style.scss
+
+// UPDATING THE FINAL HEADINGS HERE
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   // font-family: $base-font-family;
+//   font-family: $base-headings-font-family;
+// }
+//  h1 {
+//     font-size: base-heading-sizes-calc(1);
+//     line-height: base-heading-line-height(1);
+//  }
+//  h2 {
+//     font-size: base-heading-sizes-calc(2);
+//     line-height: base-heading-line-height(2);
+//  }
+//  h3 {
+//     font-size: base-heading-sizes-calc(3);
+//     line-height: base-heading-line-height(3);
+//  }
+
+//  h4 {
+//   font-size: base-heading-line-calc(4);
+//   line-height: base-hading-line-height(4);
+//  }
+
+//  h5{
+//   font-size: base-heading-line-calc(5);
+//   line-height: base-heading-line-height(5);
+//  }
+
+//  h6 {
+//   font-size: base-heading-line-calc(6);
+//   line-height: base-heading-line-height(6);
+//  }
+
+// MIXIN TO INCLUDE
+// h1 {
+//   @include base-headings-font-family-sizing(1, $base-headings-font-family);
+// }
+// h2 {
+//   // It can be as this to call the mixin
+//   @include base-headings-font-family-sizing($heading: 2, $current-font-family: $base-headings-font-family);
+// }
+// h3 {
+//   @include base-headings-font-family-sizing($heading: 3, $current-font-family: $base-headings-font-family);
+// }
+// h4 {
+//   // or maybe it can be as this to call with direct value and font-family
+//   @include base-headings-font-family-sizing(4, $base-headings-font-family);
+// }
+// h5 {
+//   @include base-headings-font-family-sizing(5, $base-headings-font-family);
+// }
+// h6 {
+//   @include base-headings-font-family-sizing(6, $base-headings-font-family);
+// }
+
+/// 2. NOW IS TIME TO USE (LOOPS)
+
+
+// INCLUDE HERE THE [base-headings] mixin
+// @include base-headings;
+
+
+// sass main datatypes
+/*
+* string
+* number
+* bool
+* null
+* list
+* map
+* color
+* arg
+*/
+
+// ERROR CONTROLS AT SASS
+.test-error {
+  // content: base-font-size-calc(1);
+}
+
+
+/** SEMANTICS IN CSS and SASS **/
+/*
+* Clean
+* Scalable
+* modular
+* Reusable -> css
+
+SEMANTICS:
+- Semantics quiere decir al (significa que tiene que ver de algo)
+- Que es lo que simboliza ello
+- "These symbols have a clear purpose and
+ meaning. We can use them with confidence that people will instantly understand what we
+ mean, or what we want to say when we use them."
+- Las listas deberia contener grupos de items familiares y contentido familiar
+- Los (headings) deberia explicar el contenido que preceden y los parrafos se deben usar para
+textos.
+- Las tablas deben ser usadas para propositos de tabulacion y no para layouts
+1. BEM (block, element, modifier)
+  .block-element__modifier
+
+2. (modifier) tiene que ver con los estados (visible, hidden, disabled, checked)
+3. (bloque) componentes modulos o el elemento padre de componentes hijos
+
+- El problema de anidar estilos en SCSS, permite que algunos valores dentro de las regalas anidas
+sean sobreescritas o sobre cargadas. Pare evitar ello es necesario tener un proposito de convencion de nombres con nombres
+de clases genericas
+
+- Aplicando BEE y SCSS
+.product {
+  &-image {
+    //some styles
+  }
+}
+
+b) OOCSS (Object-Oriented CSS)_
+
+- Es una metodologia para escribir CSS modular, escalable y mantenible.
+- Primer enfoque es en la separacion de la (estructura) de la apariencia, en segundo lugar,
+la separacion del contenedor de su contenido
+- El contenido siempre debe determinar la altura no el contenedor
+- OOCSS se base en la idea de descomponer esos patrones repetitivos en cada sitio web en componentes
+reutilizables. Estoes aplicable a elementos que creamos a menudo
+*/
+
+.post {
+  float: left;
+  width: 25%;
+  padding: 1rem;
+}
+
+
+

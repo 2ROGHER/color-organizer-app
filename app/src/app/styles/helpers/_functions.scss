@@ -1,0 +1,52 @@
+// @function base-font-size-calc($current-font-family: $base-font-family) {
+//   @if $current-font-family == $base-font-family-serif {
+//     // If the family is serfi we need to increase the font size
+//     @return $base-font-size * 1.5;
+//   } @else {
+//     // Otherwise we can leave it at the default
+//     @return $base-font-size;
+//   }
+
+// }
+
+@function base-font-size-calc($current-font-family: $base-font-family) {
+
+  @if type-of($current-font-family) != string {
+    // @error "The base-font-size-calc() function takes a tstring as ti's parameter,
+    // #{type-of($current-font-family)} types was given";
+  }
+  // @error, @warn, @debug all [sass directives]
+  @return if($current-font-family == $base-font-family-serif, $base-font-size * 1.5, $base-font-size);
+}
+
+@function base-heading-sizes-calc($heading: 2, $font-family: $base-headings-font-family) {
+  $h4-font-size: base-font-size-calc($font-family);
+  $h1-font-size: $h4-font-size * 2;
+
+  $h2-font-size: $h1-font-size / 1.333;
+  $h3-font-size: $h2-font-size / 1.2321;
+  $h5-font-size: $h4-font-size / 1.2048;
+  $h6-font-size: $h5-font-size / 1.2388;
+
+  // Here we add the [list] data structure
+  $headings: ($h1-font-size, $h2-font-size, $h3-font-size, $h4-font-size, $h5-font-size, $h6-font-size);
+
+  @return nth($headings, $heading); // nth(list, index)
+  // Lists i SASS
+  // 1. DON'T start at zero
+  // 2. You can seaprete the list with spaces instead of commas.
+  // 3. You can even leave out parentheses
+}
+
+@function base-heading-line-height($heading: 2, $font-family: $base-headings-font-family) {
+  $h1-line-height: base-heading-sizes-calc(2, $font-family); // we start at 2 instead
+  $h2-line-height: base-heading-sizes-calc(3, $font-family);
+  $h3-line-height: base-heading-sizes-calc(3, $font-family);
+  $h4-line-height: base-heading-sizes-calc(4, $font-family);
+  $h5-line-height: base-heading-sizes-calc(5, $font-family);
+  $h6-line-height: (base-heading-sizes-calc(6, $font-family) / $h1-line-height);
+
+  $line-heights: ($h1-line-height, $h2-line-height, $h3-line-height, $h4-line-height, $h5-line-height, $h6-line-height);
+
+  @return ($line-heights, $heading);
+}

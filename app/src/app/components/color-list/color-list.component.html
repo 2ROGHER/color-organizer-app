@@ -1,6 +1,6 @@
 <section class="colors">
   <ul class="colors-list">
-    <li class="colors-item no-type" *ngFor="let c of colors; let k = index">
+    <li class="colors-item" *ngFor="let c of colors; let k = index">
       <!-- Now if we want to custmize the componente with [content projection] we need to add the [projection] here-->
       <app-color [color]="c">
         <!-- <h2 id="h2">{{ c.name}}</h2> -->

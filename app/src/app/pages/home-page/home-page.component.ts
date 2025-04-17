@@ -28,7 +28,7 @@ export class HomePageComponent implements OnInit {
   ) {
     // Select all colors registered at the store.
     // this.count$ = this._store.select(selectColorCount);
-    this._store.dispatch(this._filtersActions.setFilterValue(ColorStatus.DEFAULT)); // 1.First we need to [dispatch]
+    // this._store.dispatch(this._filtersActions.setFilterValue(ColorStatus.DEFAULT)); // 1.First we need to [dispatch]
     this.colors$ = this._store.select(selectFilteredColors); // We need to select the filter colors
   }
 

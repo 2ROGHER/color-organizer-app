@@ -23,6 +23,12 @@ import { LoginComponent } from './forms/login/login.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
+import { ToLoginComponent } from './components/utils/to-login/to-login.component';
+import { FooterComponent } from './layouts/footer/footer.component';
+import { GuardAuthLocalDataService } from './services/guard-auth-local-data.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { DestructPipe } from './pipes/destruct.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +56,10 @@ import { SidebarComponent } from './layouts/sidebar/sidebar.component';
     SettingsComponent,
     SearchbarComponent,
     FilterComponent,
+    ToLoginComponent,
+    FooterComponent,
+    PaginationComponent,
+    DestructPipe,
 
 
 
@@ -61,9 +71,13 @@ import { SidebarComponent } from './layouts/sidebar/sidebar.component';
     AppRoutingModule,
     // 3. Import all modules to use here
     NgrxModule,
+
+    HttpClientModule
   ],
   providers: [
     // 2. We need to declare all services here to use
+    GuardAuthLocalDataService,
+
   ],
   bootstrap: [AppComponent],
 })

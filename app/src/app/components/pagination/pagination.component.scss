@@ -1,0 +1,19 @@
+.pagination {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pagination-items {
+  height: 20px;
+  width: 20px;
+  background: #2f2f2f;
+  border-radius: 50%;
+  cursor: pointer;
+
+}
+
+.active {
+  background: #fffafa;
+}

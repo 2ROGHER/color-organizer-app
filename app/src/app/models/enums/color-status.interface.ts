@@ -1,5 +1,5 @@
 export  enum ColorStatus {
-  DEFAULT = "DEFAULT",
+  ACTIVE = "ACTIVE",
   FAVORITE = "FAVORITE",
   DELETED = "DELETED",
   ARCHIVED = "ARCHIVED",

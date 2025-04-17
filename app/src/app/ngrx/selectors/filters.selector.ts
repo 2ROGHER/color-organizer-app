@@ -20,31 +20,36 @@ export const selectFilteredColors = createSelector(
   selectColors,
   selectFilters,
   (colors: Color[], filters: IFilter<string>) => {
-    // TODO ("Implement strong algorithm fitler here to filter the task by the [main] state")
-    if (!colors || !filters) {
-      console.warn('No hay colores o filtros definidos'); // TODO: implement the (banners) to show the client the error
-      return [];
-    }
+    // 1. If the array of colors is empty, return an empty array
+    if (!colors.length) return [];
 
-    if (filters.filteredItems.length) {
-      return colors.filter((c: Color) =>
+    // 1.1. Copy the original array to do filter acctions
+    let filteredColors = [...colors];
+
+    // 2. Filter colors by the filter values ["DELETED", "ARCHIVED", "DISABLED", "UNLIKED", "VIEWED"] etc.
+    if (filters.filteredItems.length && !filters.filterValue && !filters.searchTerm) {
+      return filteredColors.filter((c: Color) =>
         filters.filteredItems.includes(c.status)
       );
     }
 
-    if (filters.searchTerm) {
-      return colors.filter(
-        (c: Color) =>
-          c.name.toLowerCase().includes(filters.searchTerm) ||
-          c.description.toLowerCase().includes(filters.searchTerm)
+    // 3. filter colors by the only a filter value "DELETED", "FAVORITE", and son on.
+    if (filters.filterValue && !filters.searchTerm) {
+      return filteredColors.filter(
+        (c: Color) => c.status == filters.filterValue
       );
     }
 
-    if (!filters.filterValue || filters.filterValue === 'DEFAULT') {
-      return colors; // dont apply any filter with default value with 'DEFAULT'
+    // 4. Filter colors by the search term value, disptched by the user search
+    if (filters.searchTerm) {
+      return filteredColors.filter((c: Color) =>
+        c.name.toLowerCase().includes(filters.searchTerm) ||
+        c.description.toLowerCase().includes(filters.searchTerm) ||
+        c.category.name.toLowerCase().includes(filters.searchTerm)
+      );
     }
 
+    return filteredColors.filter((c: Color) => c.status !== "DELETED");
 
-    return colors.filter((c: Color) => c.status === filters.filterValue);
   }
 );

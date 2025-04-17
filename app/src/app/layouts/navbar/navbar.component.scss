@@ -1,53 +1,61 @@
-@import "../../../styles.scss";
+@use "../../styles/index.scss" as *;
 
 .nav-bar {
   position: relative;
   height: 100%;
-  display: flex;
-  padding: 32px 16px;
-  flex-direction: column;
-  justify-content: space-between;
+  width: calc(98 / 16) + rem;
+  padding: calc(36 / 16) + rem 0;
+  @include flex-item-align(column, center, space-between);
+
+  .app-logo {
+    @include flex-center;
+  }
+
+  .menu {
+    @include flex-center;
+  }
+
+  .menu-list {
+    @include flex-item-align(column, center);
+    gap: calc(2 / 16) + rem;
+
+    & li button {
+      @include flex-center; // center the svg
+      width: 100%;
+      height: 100%;
+      @include no-btn;
+    }
+
+    & li {
+      position: relative;
+      width: calc(56 / 16) + rem;
+      height: calc(56 / 16) + rem;
+      transition: all ease $base-hover-time;
+      border-radius: $base-border-size;
+    }
+
+    & li:hover {
+      background: $base-hover-color;
+      cursor: pointer;
+    }
+
+    // Modifier when the item is selected
+    .selected {
+      background: $base-active-select-bg-color;
+
+      & button svg {
+        color: $base-active-color-text;
+      }
+      & button::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        width: 1rem;
+        height: 4px;
+        bottom: calc(8 / 16) + rem;
+        border-radius: $base-border-size;
+        background-color: #674684;
+      }
+    }
+  }
 }
-
-.nav-bar ul {
-  padding-inline-start: 0;
-}
-
-
-.menu ul li,
-.helpers ul li {
-  position: relative;
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // width: 64px;
-  // height: 48px;
-  padding: 14px 20px;
-  margin: 16px 0;
-  border-radius: 12px;
-}
-
-.btn-home,
-.btn-search,
-.btn-new,
-.btn-favs,
-.btn-account {
-  outline: none;
-  border: none;
-  background-color: transparent;
-}
-.menu ul li:hover, .helpers ul li:hover { 
-  background: #111;
-  // height: 54px;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.selected {
-  background-color: #111;
-  border-radius: 4px;
-
-}
-
-

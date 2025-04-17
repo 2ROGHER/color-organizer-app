@@ -1,0 +1,14 @@
+// Align element horizontal-vertical
+@mixin flex-item-align($direction: row, $align: center, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+
+}
+// Align element at centet of the box
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

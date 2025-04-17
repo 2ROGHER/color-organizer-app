@@ -8,22 +8,28 @@
 
   <main class="main">
     <!-- [serach-bar ] cotainer-->
-    <div class="search-bar">
+    <div class="main-searchbar">
       <app-filter></app-filter>
       <app-search-bar></app-search-bar>
     </div>
 
-    <section class="color-form">
+    <div class="to-login-component">
+      <app-to-login></app-to-login>
+    </div>
+
+    <!-- <section class="color-form">
       <app-create-color-form
         *ngIf="isActive && true"
         (activeFormEmitter)="handleSetActiveForm($event)"
       ></app-create-color-form>
-    </section>
-    <pre>
+    </section> -->
 
-</pre>
-    <div class="colors-list">
+    <div class="main-colors-section">
       <app-color-list [colors]="(colors$ | async) || []"></app-color-list>
+
+      <section class="pagination-content">
+        <app-pagination></app-pagination>
+      </section>
     </div>
   </main>
 </main>

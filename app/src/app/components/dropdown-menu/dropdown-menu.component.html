@@ -1,6 +1,5 @@
-<aside class="dropdown-menu">
-  <div class="menu-container">
-    <div class="menu-title">
+<menu class="dropdown-menu">
+  <!-- <div class="menu-title">
       <span
         ><svg
           xmlns="http://www.w3.org/2000/svg"
@@ -23,36 +22,14 @@
             stroke-width="1.5"
             stroke-linecap="round"
             stroke-linejoin="round"
-          /></svg></span
+          />
+        </svg> </span
       ><span>status types</span>
-    </div>
-    <ul class="menu-list">
-      <li *ngFor="let i of menuItems" class="menu-item">
-        <span class="checkbox-input" *ngIf="type == 'only'">
-          <input
-            type="radio"
-            name="check"
-            id="menu-item"
-            title="menu-menu"
-            value="{{ i }}"
-            (change)="onChangeValue($event)"
-
-          />
-        </span>
-
-        <span class="checkbox-input" *ngIf="type == 'multiple'">
-          <input
-            type="checkbox"
-            name="check"
-            id="menu-item"
-            title="menu-menu"
-            value="{{ i }}"
-            (change)="onChangeValue($event); emitItemSelected()"
-          />
-        </span>
-
-        <span>{{ i }}</span>
-      </li>
-    </ul>
-  </div>
-</aside>
+    </div> -->
+  <ul class="menu-list">
+    <li *ngFor="let i of menuItems" class="menu-item">
+      <span [innerHTML]="i | destruct : 'v'" class="menu-item-k"></span>
+      <span class="menu-item-v">{{ i | destruct : "k" }}</span>
+    </li>
+  </ul>
+</menu>

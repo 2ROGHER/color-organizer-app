@@ -1,4 +1,4 @@
-@import "../../../styles.scss";
+@use "../../styles/index.scss" as *;
 
 .filter-bar,
 .fiterbar-box {
@@ -14,7 +14,7 @@
   background: #1f1f1f;
   outline: none;
   border: none;
-  color: $base-color-text;
+  color: $base-inactive-color-text;
   padding: 8px 16px;
   border-radius: $base-border-box;
   margin-right: 4px;

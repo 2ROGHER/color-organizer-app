@@ -1,9 +1,8 @@
-@import "../../../styles.scss";
+@use "../../../styles.scss";
 
 .dropdown-menu {
   position: relative;
-  background: #1a1a1a;
-  padding: 12px;
+  background: #191919;
   border: 1px solid $base-border-color;
   border-radius: 4px;
   z-index: 10000;
@@ -12,6 +11,7 @@
 }
 
 .menu-title {
+
   display: flex;
   justify-content: center;
   text-transform: capitalize;
@@ -26,29 +26,34 @@
   display: flex;
   flex-direction: column;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 200;
   width: 100%;
-  text-transform: capitalize;
-  margin: 14px 0;
+  // text-transform: capitalize;
 }
 
 .menu-list li {
   position: relative;
-  padding: 4px;
-  align-items: center;
-  list-style-type: none;
+  padding: 6px 40px 6px 6px;
   display: flex;
+  align-items: center;
+  justify-content: start;
+  text-transform: capitalize;
   gap: 6px;
+
 }
 
-.menu-list li span.checkbox-input {
+
+.menu-list li span {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 4px;
 }
 
 .menu-list li:hover {
-  background-color: #111;
+  // background-color: #111;
+  background: rgba(53, 50, 32,.9);
+
   cursor: pointer;
 }
 

@@ -42,7 +42,7 @@ export const colorReducer: ActionReducer<any | {}, IAction<any>> = (
         description,
         stars,
         rate,
-        ColorStatus.DEFAULT,
+        ColorStatus.ACTIVE,
         createdAt,
         updateAt
       );
