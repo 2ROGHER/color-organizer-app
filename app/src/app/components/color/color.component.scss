@@ -1,78 +1,70 @@
-@import "../../../styles.scss";
-
+@use "../../styles/index.scss" as *;
 .color {
   position: relative;
   // background: red;
 
-  width: 220px;
+  width: calc(220 / 16) + rem;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
   border: 1px solid $base-border-color;
-  border-radius: 4px;
-  padding: 16px;
-  height: 400px;
-}
+  border-radius: calc(4 / 16) + rem;
+  padding: 1rem;
+  gap: calc(14 / 16) + rem;
+  height: calc(340 / 16) + rem;
 
-.options {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
+  .options {
+    @include flex-item-align(row, center, space-between);
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 20px;
 
-.options div button {
-  outline: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    div button {
+      @include no-btn();
+      @include flex-item-align(row, center, center);
+      padding: calc(8 / 16) + rem;
+    }
 
-.options .delete-opt:hover button {
-  background: #270702;
-  border-radius: 100%;
-}
+    .delete-opt:hover {
+      background: #270702;
+      border-radius: 100%;
+    }
 
+    .toggle-opt:hover {
+      background: $base-hover-color;
+      border-radius: $base-border-box;
 
+      button svg {
+        color: $base-active-color-text;
+      }
+    }
+  }
+  &-header {
+  }
 
-.color-header {
-  margin: 8px 0;
-}
-.color-value {
-  border-radius: 50%;
-}
-.color-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.color-body p {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 300;
-}
-.color-content div {
-  border: 2px solid $base-border-color;
-}
-.color-footer {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 0;
-  overflow: hidden;
-}
+  &-body {
+    @include flex-item-align(column, center, center);
+    gap: calc(6 / 16) + rem;
+    text-transform: uppercase;
+  }
+  &-hexvalue {
+    font-family: $base-font-family-cascadia-code;
+    cursor: pointer;
+  }
 
-.color-date span {
-  font-size: 12px;
+  .view-more {
+    a {
+      font-size: 1rem;
+      background: $base-able-bg-color;
+      color: $base-bg-app;
+      text-transform: capitalize;
+      padding: calc(6 / 16) + rem calc(12 / 16) + rem;
+      font-weight: 550;
+      border-radius: $base-border-box;
+      cursor: pointer;
+    }
+  }
 }
 
 .dropdown-menu {

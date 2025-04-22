@@ -1,9 +1,45 @@
-<form
-  [formGroup]="addColorForm"
-  class="form-color__create"
-  
->
+<form [formGroup]="addColorForm" class="color-form">
   <!--This [hijacks] the normal form submission mechanism and instead call the function [onSubmit]-->
+
+  <div class="color-form-header">
+    <div class="color-form-content">
+      <input
+        title="color-picker"
+        type="color"
+        class="color-value"
+        formControlName="color"
+        [ngStyle]="{
+          background: addColorForm.get('color')?.value,
+          'width.px': 128,
+          'height.px': 128,
+          'borderRadius.pt': 50
+        }"
+      />
+    </div>
+  </div>
+
+  <div class="color-form-body">
+    <!-- <h1 class="color-hexvalue">#000000</h1> -->
+    <input
+      type="text "
+      name="hex-value"
+      formControlName="hexValue"
+      placeholder="#000000"
+    />
+    <input type="text " name="name" placeholder="NAME" formControlName="name" />
+  </div>
+
+  <div class="color-form-create">
+    <button
+      title="create color"
+      (click)="handleCreateNewColor()"
+    >
+      create
+    </button>
+  </div>
+</form>
+
+<!--
   <fieldset class="form-color-details" formGroupName="details">
     <div class="name">
       <label class="name-label">Name</label>
@@ -78,8 +114,7 @@
     <label for="" class="rate-label">Rate</label>
     <select class="select-rate" formControlName="rate">
       <option selected>select an option</option>
-      <!-- <option value="2">3</option>
-      <option value="3">9</option> -->
+      <option value="3">9</option>
       <option *ngFor="let o of [1, 2, 3, 4, 5]">
         {{ o }}
       </option>
@@ -90,7 +125,4 @@
     <button type="submit" (click)="handleActiveForm(); handleCreateNewColor()">
       create color
     </button>
-  </div>
-</form>
-
-
+  </div> -->

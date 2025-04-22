@@ -1,8 +1,13 @@
 <section class="colors">
   <ul class="colors-list">
+    <!-- # Create form section-->
+    <app-create-color-form></app-create-color-form>
+
+    <!-- # List of colors -->
     <li class="colors-item" *ngFor="let c of colors; let k = index">
       <!-- Now if we want to custmize the componente with [content projection] we need to add the [projection] here-->
       <app-color [color]="c">
+        <!-- # Projections with Angular -->
         <!-- <h2 id="h2">{{ c.name}}</h2> -->
         <!-- <h3 class="description">{{ c.description }}</h3> -->
       </app-color>

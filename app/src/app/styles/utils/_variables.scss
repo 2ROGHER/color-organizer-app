@@ -1,18 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Font Family style fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 // 1. Base Font Families
 $base-font-family-sans: sans-serif;
 $base-font-family-serif: serif;
 $base-font-family-code: monospace;
 $base-font-family-inter: "Inter";
-$font-family-manrope: "Manrope";
-$font-family-quicksand: "Quicksand";
-$font-family-cascadia-code: "Cascadia Code";
+$base-font-family-manrope: "Manrope";
+$base-font-family-quicksand: "Quicksand";
+$base-font-family-fira-code: "Fira Code";
+$base-font-family-cascadia-code: "Cascadia Code";
 
 $base-font-family: $base-font-family-inter;
 
@@ -24,36 +23,36 @@ $base-font-size: 1rem;
 $base-line-height: 1.5;
 
 // 2.1 FONTS
-$base-h1-size: calc(61/16) + rem;
-$base-h2-size: calc(48.8/16) + rem;
-$base-h3-size: calc(39.1/16) + rem;
-$base-h4-size: calc(31.3/16) + rem;
-$base-h5-size: calc(25/16) + rem;
-$base-h6-size: calc(20/16) + rem;
+$base-h1-size: calc(61 / 16) + rem;
+$base-h2-size: calc(48.8 / 16) + rem;
+$base-h3-size: calc(39.1 / 16) + rem;
+$base-h4-size: calc(31.3 / 16) + rem;
+$base-h5-size: calc(25 / 16) + rem;
+$base-h6-size: calc(20 / 16) + rem;
 $base-p-size: 1rem;
-$base-s-size: calc(13/16) + rem;
+$base-s-size: calc(13 / 16) + rem;
 
 // 2.2. BORDERS
-$base-border-size: calc(4/16) + rem;
+$base-border-size: calc(4 / 16) + rem;
 // Base colors
 $base-bg-color: #000000;
 $base-card-color: #1d1d1d;
 $base-border-color: #333;
 $base-active-color-text: #ededed;
 $base-inactive-color-text: #a2a2a2;
-$base-bg-app: #0F0F0F;
+$base-bg-app: #0f0f0f;
 $base-hover-color: #202020;
-$base-active-bg-color: #1F1528;
-$base-active-select-bg-color: #1F1528;
+$base-active-bg-color: #1f1528;
+$base-active-select-bg-color: #1f1528;
 $base-menu-bg-color: #232323;
-
+$base-able-bg-color: #faffff;
+$base-enable-bg-color: #999;
 
 $base-error-color: #ff6347;
-$base-success-color: #71EE71;
+$base-success-color: #71ee71;
 
 // Base sizes
 $base-border-box: 4px;
 
-
 // Base [animations]
-$base-hover-time: 0.30s;
+$base-hover-time: 0.3s;

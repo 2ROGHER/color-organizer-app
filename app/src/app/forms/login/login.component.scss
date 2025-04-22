@@ -1,4 +1,4 @@
-@use "../../../styles.scss" as index;
+@use "../../styles/index.scss" as *;
 
 .login-title {
   padding-bottom: 48px;
@@ -29,7 +29,7 @@
 .password input {
   background: none;
   border-radius: 4px;
-  border: 1px solid index.$base-border-color;
+  border: 1px solid $base-border-color;
   padding: 8px;
   color: red;
   outline: none;
@@ -94,7 +94,7 @@
 .or-separator::before {
   content: "";
   flex: 1;
-  background:  index.$base-border-color;
+  background: $base-border-color;
   width: 100%;
   height: 2px;
   margin-right: 8px;
@@ -102,7 +102,7 @@
 .or-separator::after {
   content: "";
   flex: 1;
-  background:  index.$base-border-color;
+  background: $base-border-color;
   width: 100%;
   height: 2px;
   margin-left: 8px;

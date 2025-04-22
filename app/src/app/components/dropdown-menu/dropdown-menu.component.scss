@@ -1,5 +1,4 @@
-@use "../../../styles.scss";
-
+@use "../../styles/index.scss" as *;
 .dropdown-menu {
   position: relative;
   background: #191919;
@@ -18,7 +17,7 @@
   font-size: 14px;
   font-weight: 400;
   gap: 4px;
-  border-bottom: 1px solid $base-color-text;
+  border-bottom: 1px solid $base-active-color-text
 }
 
 .menu-list {

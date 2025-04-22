@@ -1,75 +1,71 @@
-@import "../../../styles.scss";
+@use "../../styles/index.scss" as *;
 
-.form-color__create {
-  position: relative;
-  width: 456px;
-  padding: 32px;
-  border: 1px solid $base-border-color;
-  border-radius: 4px;
-  // background: none;
-}
-
-.form-color-details {
-  border: none;
-}
-.form-color-details div {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: 6px;
-  margin: 16px 0;
-}
-.form-color-details div label,
-.stars label,
-.rate label {
-  position: relative;
-  font-size: 12px;
-  font-weight: 300;
-}
-
-.form-color-details div input {
-  background: none;
-  color: $base-color-text;
-  padding: 12px 16px;
-  border: 1px solid $base-border-color;
-  border-radius: 4px;
-  outline: none;
-  font-size: 14px;
-}
-
-.stars,
-.rate {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin: 16px 0;
-}
-
-.btn__create {
+.color-form {
+  width: calc(220 / 16) + rem;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.btn__create button {
-  padding: 12px 40px;
-  background: #000;
-  outline: none;
-  border: 1px solid $base-color-text;
-  border-radius: 4px;
-  color: $base-color-text;
-  cursor: pointer;
-  margin: 16px 0;
-  text-transform: capitalize;
-}
-
-.rate select {
-  // color: $base-bg-color;
-  background: none;
-  color: $base-color-text;
-  padding: 12px 16px;
+  flex-wrap: wrap;
+  flex-direction: column;
   border: 1px solid $base-border-color;
-  border-radius: 4px;
-  outline: none;
-  font-size: 14px;
+  border-radius: calc(4 / 16) + rem;
+  padding: 1rem;
+  gap: calc(14 / 16) + rem;
+  height: calc(340 / 16) + rem;
+  background: $base-card-color;
+
+  &-header {
+    div input[type="color"] {
+      -webkit-appearance: none;
+      block-size: 50px;
+      border: 1px solid #999;
+      padding: 0;
+    }
+    div input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+
+    div input[type="color"]::-webkit-color-swatch {
+      border: none;
+      border-radius: 50%;
+    }
+  }
+
+  &-body {
+    width: 100%;
+    @include flex-item-align(column, center, center);
+    gap: calc(14 / 16) + rem;
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+      color: $base-active-color-text;
+      font-size: calc(24 / 16) + rem;
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    input[name="hex-value"] {
+      font-family: $base-font-family-cascadia-code;
+    }
+
+    input[name="name"] {
+      font-family: $base-font-family;
+      text-transform: uppercase;
+    }
+
+    input[name="hex-value"]::placeholder,
+    input[name="name"]::placeholder {
+      color: $base-inactive-color-text;
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+
+  &-create {
+    button {
+      @include view-button($base-enable-bg-color, #222222, $base-border-box);
+    }
+  }
 }

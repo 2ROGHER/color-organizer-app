@@ -56,6 +56,9 @@ menu {
 li {
   list-style-type: none;
 }
+a {
+  text-decoration: none;
+}
 
 /*
 * Heading sizes
@@ -139,10 +142,8 @@ li {
 
 /// 2. NOW IS TIME TO USE (LOOPS)
 
-
 // INCLUDE HERE THE [base-headings] mixin
 // @include base-headings;
-
 
 // sass main datatypes
 /*
@@ -160,7 +161,6 @@ li {
 .test-error {
   // content: base-font-size-calc(1);
 }
-
 
 /** SEMANTICS IN CSS and SASS **/
 /*
@@ -211,6 +211,3 @@ reutilizables. Estoes aplicable a elementos que creamos a menudo
   width: 25%;
   padding: 1rem;
 }
-
-
-

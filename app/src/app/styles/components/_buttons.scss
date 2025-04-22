@@ -1,5 +1,23 @@
+// @use "../index.scss" as *;
+
 @mixin no-btn {
   outline: 0;
   border: none;
-  background: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+// view button card
+@mixin view-button($bg, $color: #222222, $border-size) {
+  font-size: 1rem;
+  background: $bg;
+  outline: none;
+  border: none;
+  color: $color;
+  text-transform: capitalize;
+  padding: calc(6 / 16) + rem calc(12 / 16) + rem;
+  font-weight: 550;
+  border-radius: $border-size;
+  cursor: pointer;
+  font-family: "Poppins";
 }

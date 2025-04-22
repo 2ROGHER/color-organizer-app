@@ -1,19 +1,27 @@
+@use "../../styles/index.scss" as *;
+
 .pagination {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+  @include flex-item-align(row, center, center);
+  gap: 1rem;
 
-.pagination-items {
-  height: 20px;
-  width: 20px;
-  background: #2f2f2f;
-  border-radius: 50%;
-  cursor: pointer;
+  &-items {
+    width: 1rem;
+    height: 1rem;
+    background: #5a5a5a;
+    border-radius: 50%;
+    cursor: pointer;
 
-}
+    // &:hover {
+    //   background: $base-active-select-bg-color;
+    //   width: calc(28 / 16) + rem;
+    //   border-radius: 50px 50px;
+    // }
+  }
 
-.active {
-  background: #fffafa;
+  .active {
+    background: $base-active-select-bg-color;
+    width: calc(28 / 16) + rem;
+    border-radius: 50 50;
+  }
 }

@@ -9,7 +9,7 @@ import { Category } from '../../models/domain/category.model';
 import Color from '../../models/domain/color.model';
 import { ColorsActions } from '../../ngrx/actions';
 import { Store } from '@ngrx/store';
-import { v4 } from 'uuid';
+import { v4, validate } from 'uuid';
 @Component({
   selector: 'app-create-color-form',
   templateUrl: './create-color-form.component.html',
@@ -34,6 +34,8 @@ export class CreateColorFormComponent {
   // [Note important]: If we need to to create a component to search any value as <app-search-component>
   // we should be use [Reactive MOdel Form]
   addColorForm: FormGroup = new FormGroup({}); // This is the [model form] and we are goint to use [formGroup] to bind it to template
+
+  hexValue!: string;
 
   // tests
   @Output()
@@ -65,28 +67,29 @@ export class CreateColorFormComponent {
     // );
     this._store.dispatch(
       this._colorsAction.addColor({
-        ...this.addColorForm.value.details,
-        ...this.addColorForm.value.stars,
-        ...this.addColorForm.value.rate,
+        ...this.addColorForm.value.color,
+        ...this.addColorForm.value.hexValue,
+        ...this.addColorForm.value.name,
         id: v4(),
-      } as Color)
+      } as Color) //cast the color
     );
   }
 
   ngOnInit() {
     this.addColorForm = new FormGroup({
-      details: new FormGroup({
-        name: new FormControl('', [
-          // new FormControl('initial value', controls)
-          Validators.required,
-          Validators.minLength(15),
-        ]),
-        category: new FormControl('', Validators.required),
-        hexValue: new FormControl(),
-        description: new FormControl(),
-      }),
-      stars: new FormControl(),
-      rate: new FormControl(),
+      color: new FormControl('#999999', [Validators.required]),
+      hexValue: new FormControl('#999999'),
+      name: new FormControl(''),
+    });
+
+    // When change the color picker, update the input with 'hexValue'
+    this.addColorForm.get('color')?.valueChanges.subscribe((c: string) => {
+      this.addColorForm.get('hexValue')?.setValue(c, { emitEvent: false });
+    });
+
+    // Now if the color of the 'hexValue' is updated, we need to change the color picker value
+    this.addColorForm.get('hexValue')?.valueChanges.subscribe((c: string) => {
+      this.addColorForm.get('color')?.setValue(c, { emitEvent: false });
     });
 
     this.addColorForm.valueChanges.subscribe((v: any) => {

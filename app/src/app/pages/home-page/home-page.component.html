@@ -25,8 +25,12 @@
     </section> -->
 
     <div class="main-colors-section">
+      
+
+      <!-- list colors section -->
       <app-color-list [colors]="(colors$ | async) || []"></app-color-list>
 
+      <!--paginaton secction-->
       <section class="pagination-content">
         <app-pagination></app-pagination>
       </section>
