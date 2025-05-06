@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Font Family style fonts */
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
 // 1. Base Font Families
 $base-font-family-sans: sans-serif;
 $base-font-family-serif: serif;
@@ -12,6 +11,7 @@ $base-font-family-manrope: "Manrope";
 $base-font-family-quicksand: "Quicksand";
 $base-font-family-fira-code: "Fira Code";
 $base-font-family-cascadia-code: "Cascadia Code";
+$base-font-family-montserrat: "Montserrat";
 
 $base-font-family: $base-font-family-inter;
 
@@ -47,10 +47,11 @@ $base-active-select-bg-color: #1f1528;
 $base-menu-bg-color: #232323;
 $base-able-bg-color: #faffff;
 $base-enable-bg-color: #999;
+$base-inactive-icon-color: #b6b6b6;
+$base-active-icon-color: #ededed;
 
 $base-error-color: #ff6347;
 $base-success-color: #71ee71;
-
 // Base sizes
 $base-border-box: 4px;
 

@@ -10,6 +10,7 @@ import Color from '../../models/domain/color.model';
 import { ColorsActions } from '../../ngrx/actions';
 import { Store } from '@ngrx/store';
 import { v4, validate } from 'uuid';
+import { ColorStatus } from '../../models/enums/color-status.interface';
 @Component({
   selector: 'app-create-color-form',
   templateUrl: './create-color-form.component.html',
@@ -35,9 +36,9 @@ export class CreateColorFormComponent {
   // we should be use [Reactive MOdel Form]
   addColorForm: FormGroup = new FormGroup({}); // This is the [model form] and we are goint to use [formGroup] to bind it to template
 
-  hexValue!: string;
+  // hexValue!: string;
 
-  // tests
+  // This property is used to set the color of the color picker.
   @Output()
   createColorEmitter: EventEmitter<any> = new EventEmitter();
 
@@ -51,35 +52,37 @@ export class CreateColorFormComponent {
   ) {}
 
   handleCreateNewColor() {
-    // This method allows us to create a new color wiht [@Output] decoratos and [output function binding]
-    // this.createColorEmitter.emit(
-    //   new Color(
-    //     c.id,
-    //     c.name,
-    //     c.category,
-    //     c.hexValue,
-    //     c.description,
-    //     c.stars,
-    //     c.rate,
-    //     '',
-    //     ''
-    //   )
-    // );
+    window.alert('Color created successfully'); // info the user that this operation is done successfully.
     this._store.dispatch(
-      this._colorsAction.addColor({
-        ...this.addColorForm.value.color,
-        ...this.addColorForm.value.hexValue,
-        ...this.addColorForm.value.name,
-        id: v4(),
-      } as Color) //cast the color
+      this._colorsAction.addColor(
+        new Color(
+          v4(),
+          this.addColorForm.value.name.trim(),
+          new Category(''), // This values are hardcoded for now, this will be changed later in the datails page
+          this.addColorForm.value.hexValue.trim(),
+          'Empty description',
+          3,
+          3,
+          ColorStatus.ACTIVE,
+          new Date().toString(),
+          new Date().toString()
+        )
+      )
     );
   }
 
   ngOnInit() {
+    // Initialize the form group and set the default values.
     this.addColorForm = new FormGroup({
       color: new FormControl('#999999', [Validators.required]),
-      hexValue: new FormControl('#999999'),
-      name: new FormControl(''),
+      hexValue: new FormControl('#999999', [
+        Validators.required,
+        Validators.maxLength(20),
+      ]),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(20),
+      ]),
     });
 
     // When change the color picker, update the input with 'hexValue'
@@ -90,10 +93,6 @@ export class CreateColorFormComponent {
     // Now if the color of the 'hexValue' is updated, we need to change the color picker value
     this.addColorForm.get('hexValue')?.valueChanges.subscribe((c: string) => {
       this.addColorForm.get('color')?.setValue(c, { emitEvent: false });
-    });
-
-    this.addColorForm.valueChanges.subscribe((v: any) => {
-      // To do something when anything changes at the state.
     });
   }
 

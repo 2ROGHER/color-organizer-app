@@ -1,20 +1,37 @@
 import { NgModule } from '@angular/core';
-import { PreloadingStrategy, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, PreloadingStrategy, RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { ColorDetailsComponent } from './pages/color-details/color-details.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomePageComponent,
     pathMatch: 'full',
+    // If we want to add [bradcrumbs] is necesary use the router methods incorporated by Angular.
+    data: {
+      breadcrumbs: 'Home',
+    },
   },
+  {
+    path: 'details',
+    component: ColorDetailsComponent,
+    pathMatch: 'full',
+    data: {
+      breadcrumbs: 'Details',
+    },
+  },
+
   {
     path: 'register',
     component: SignUpPageComponent,
     pathMatch: 'full',
+    data: {
+      breadcrumbs: 'Register',
+    },
   },
   {
     path: 'login',
@@ -43,7 +60,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       useHash: true,
-      preloadingStrategy: PreloadingStrategy,
+      preloadingStrategy: PreloadAllModules // This is the correct way to use (PreloadingStrategy) or we can create a
+      // concreta class an (extends) the (PreloadingStratey) interface
     }),
   ],
   exports: [RouterModule],

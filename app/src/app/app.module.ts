@@ -25,10 +25,15 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { ToLoginComponent } from './components/utils/to-login/to-login.component';
 import { FooterComponent } from './layouts/footer/footer.component';
-import { GuardAuthLocalDataService } from './services/guard-auth-local-data.service';
+import { GuardAuthLocalDataService } from './services/local-storage/guard-auth-local-data.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { DestructPipe } from './pipes/destruct.pipe';
+import { CounterViewComponent } from './components/counter-view/counter-view.component';
+import { TrackNavigationComponent } from './components/track-navigation/track-navigation.component';
+import { BreadcrumbService } from './services/breadcrumbs/breadcrumb.service';
+import { ColorDetailsComponent } from './pages/color-details/color-details.component';
+import { PaginationService } from './services/pagination/pagination.service';
 
 @NgModule({
   declarations: [
@@ -60,6 +65,9 @@ import { DestructPipe } from './pipes/destruct.pipe';
     FooterComponent,
     PaginationComponent,
     DestructPipe,
+    CounterViewComponent,
+    TrackNavigationComponent,
+    ColorDetailsComponent,
 
 
 
@@ -72,11 +80,16 @@ import { DestructPipe } from './pipes/destruct.pipe';
     // 3. Import all modules to use here
     NgrxModule,
 
-    HttpClientModule
+    HttpClientModule,
+    // Dragable Module
+
   ],
   providers: [
     // 2. We need to declare all services here to use
     GuardAuthLocalDataService,
+    // 3. Add the service to build breadcrumbs
+    BreadcrumbService,
+    PaginationService
 
   ],
   bootstrap: [AppComponent],

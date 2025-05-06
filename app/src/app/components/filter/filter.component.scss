@@ -1,35 +1,18 @@
 @use "../../styles/index.scss" as *;
 
-.filter-bar,
-.fiterbar-box {
+.filter-bar {
   position: relative;
-}
+  margin: calc(30 / 16) + rem 0;
+  @include flex-item-align(row, center, space-between);
 
-.btn__filter {
-  display: flex;
-  position: relative;
-  align-items: center;
-  font-size: 16px;
-  gap: 8px;
-  background: #1f1f1f;
-  outline: none;
-  border: none;
-  color: $base-inactive-color-text;
-  padding: 8px 16px;
-  border-radius: $base-border-box;
-  margin-right: 4px;
-  font-family: $base-font-family-inter;
-  cursor: pointer;
-}
+  width: 100%;
 
-.dropdown-arrow {
-  position: relative;
-  left: calc(16px / 2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dropdown-menu-filter {
-  position: absolute;
+  .filterbar-container {
+    position: relative;
+    // width: calc(400 / 16) + rem;
+    @include flex-item-align(row, center, space-between);
+    gap: 1rem;
+    padding: 0;
+    // background-color: red;
+  }
 }

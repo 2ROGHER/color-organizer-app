@@ -23,46 +23,46 @@ export const colorReducer: ActionReducer<any | {}, IAction<any>> = (
     case CREATE_COLOR:
       // return new Color('', '', '', new Category(''), '', '', 2, 2, '', '');
       const {
-        _,
+        id,
         name,
-        color,
         category,
         hexValue,
         description,
         stars,
         rate,
+        status,
         createdAt,
-        updateAt,
+        updatedAt,
       } = action.payload;
       return new Color(
-        v4(),
+        id,
         name,
         new Category(category),
         hexValue,
         description,
         stars,
         rate,
-        ColorStatus.ACTIVE,
+        status && ColorStatus.ACTIVE,
         createdAt,
-        updateAt
+        updatedAt
       );
 
     case SET_COLOR_STATUS:
       return state.id === action.payload.id
         ? new Color(
-          state.id,
-          state.name,
-          state.category,
-          state.hexValue,
-          state.description,
-          state.stars,
-          state.rate,
-          (action.payload.s).toUpperCase(),
-          state.createdAt,
-          state.updatedAt
-        )
+            state.id,
+            state.name,
+            state.category,
+            state.hexValue,
+            state.description,
+            state.stars,
+            state.rate,
+            action.payload.s.toUpperCase(),
+            state.createdAt,
+            state.updatedAt
+          )
         : state;
-        // ? ({...state, _status: (action.payload.s).toUpperCase()}) : state;
+    // ? ({...state, _status: (action.payload.s).toUpperCase()}) : state;
 
     case REMOVE_COLOR:
       return state._id !== action.payload;

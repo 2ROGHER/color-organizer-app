@@ -9,7 +9,6 @@
   <main class="main">
     <!-- [serach-bar ] cotainer-->
     <div class="main-searchbar">
-      <app-filter></app-filter>
       <app-search-bar></app-search-bar>
     </div>
 
@@ -24,8 +23,17 @@
       ></app-create-color-form>
     </section> -->
 
+    <!-- This section contains the list of colors -->
     <div class="main-colors-section">
-      
+      <!-- Track Navigation component or breadcrumbs -->
+      <section class="main-track-navigation">
+        <app-track-navigation></app-track-navigation>
+      </section>
+
+      <!-- This section contains the filter-bar container -->
+      <section class="main-filter-bar">
+        <app-filter></app-filter>
+      </section>
 
       <!-- list colors section -->
       <app-color-list [colors]="(colors$ | async) || []"></app-color-list>

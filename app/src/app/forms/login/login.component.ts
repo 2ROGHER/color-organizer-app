@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { GuardAuthLocalDataService } from '../../services/guard-auth-local-data.service';
+import { GuardAuthLocalDataService } from '../../services/local-storage/guard-auth-local-data.service';
 import { Router } from '@angular/router';
 
 @Component({

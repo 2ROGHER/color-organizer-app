@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumbs" class="track-navigation">
+  <ng-container *ngFor="let b of breadcrumbs$ | async; let last = last">
+    <ng-container *ngIf="!last">
+      <a [routerLink]="b.url">{{ b.label }}</a>
+    </ng-container>
+    <span *ngIf="last">{{ b.label }}</span>
+  </ng-container>
+</nav>

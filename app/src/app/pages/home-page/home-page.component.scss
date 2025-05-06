@@ -27,19 +27,18 @@
     &-colors-section {
       @include flex-item-align(column, center)// align items to center
     }
+
+    &-filter-bar {
+      width: 100% !important;
+    }
+    &-track-navigation {
+      position: relative;
+      width: 100% !important;
+
+    }
   }
 
 }
-
-// .search-bar {
-//   display: flex;
-//   align-items: center;
-//   height: fit-content;
-//   padding: 16px 32px;
-//   border-radius: $base-border-box;
-//   border: 1px solid $base-border-color;
-//   margin-bottom: 32px;
-// }
 
 .to-login-component {
   position: absolute;

@@ -13,6 +13,7 @@
   padding: 1rem;
   gap: calc(14 / 16) + rem;
   height: calc(340 / 16) + rem;
+  background: $base-card-color;
 
   .options {
     @include flex-item-align(row, center, space-between);
@@ -66,6 +67,7 @@
     }
   }
 }
+
 
 .dropdown-menu {
   position: absolute;

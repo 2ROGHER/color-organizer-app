@@ -1,35 +1,100 @@
-<menu class="dropdown-menu">
-  <!-- <div class="menu-title">
-      <span
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="24"
-          height="24"
-          color="#fffafa"
-          fill="none"
-        >
-          <path
-            d="M20.6693 7C20.7527 6.8184 20.7971 6.62572 20.8297 6.37281C21.0319 4.8008 21.133 4.0148 20.672 3.5074C20.2111 3 19.396 3 17.7657 3H6.23433C4.60404 3 3.7889 3 3.32795 3.5074C2.86701 4.0148 2.96811 4.8008 3.17033 6.3728C3.22938 6.8319 3.3276 7.09253 3.62734 7.44867C4.59564 8.59915 6.36901 10.6456 8.85746 12.5061C9.08486 12.6761 9.23409 12.9539 9.25927 13.2614C9.53961 16.6864 9.79643 19.0261 9.93278 20.1778C10.0043 20.782 10.6741 21.2466 11.226 20.8563C12.1532 20.2006 13.8853 19.4657 14.1141 18.2442C14.2223 17.6668 14.3806 16.6588 14.5593 15"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M17.5 8V15M21 11.5L14 11.5"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg> </span
-      ><span>status types</span>
-    </div> -->
-  <ul class="menu-list">
-    <li *ngFor="let i of menuItems" class="menu-item">
+<div class="dropdown-menu" (clickOutside)="onCloseMenu()">
+  <div class="left-side">
+    <div class="filter-icon" aria-hidden="true">
+      <svg
+        class="filter-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+        color="#b6b6b6"
+        fill="none"
+      >
+        <path
+          d="M3 7H6"
+          stroke="#b6b6b6"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+        <path
+          d="M3 17H9"
+          stroke="#b6b6b6"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+        <path
+          d="M18 17L21 17"
+          stroke="#b6b6b6"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+        <path
+          d="M15 7L21 7"
+          stroke="#b6b6b6"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+        <path
+          d="M6 7C6 6.06812 6 5.60218 6.15224 5.23463C6.35523 4.74458 6.74458 4.35523 7.23463 4.15224C7.60218 4 8.06812 4 9 4C9.93188 4 10.3978 4 10.7654 4.15224C11.2554 4.35523 11.6448 4.74458 11.8478 5.23463C12 5.60218 12 6.06812 12 7C12 7.93188 12 8.39782 11.8478 8.76537C11.6448 9.25542 11.2554 9.64477 10.7654 9.84776C10.3978 10 9.93188 10 9 10C8.06812 10 7.60218 10 7.23463 9.84776C6.74458 9.64477 6.35523 9.25542 6.15224 8.76537C6 8.39782 6 7.93188 6 7Z"
+          stroke="#b6b6b6"
+          stroke-width="1.5"
+        ></path>
+        <path
+          d="M12 17C12 16.0681 12 15.6022 12.1522 15.2346C12.3552 14.7446 12.7446 14.3552 13.2346 14.1522C13.6022 14 14.0681 14 15 14C15.9319 14 16.3978 14 16.7654 14.1522C17.2554 14.3552 17.6448 14.7446 17.8478 15.2346C18 15.6022 18 16.0681 18 17C18 17.9319 18 18.3978 17.8478 18.7654C17.6448 19.2554 17.2554 19.6448 16.7654 19.8478C16.3978 20 15.9319 20 15 20C14.0681 20 13.6022 20 13.2346 19.8478C12.7446 19.6448 12.3552 19.2554 12.1522 18.7654C12 18.3978 12 17.9319 12 17Z"
+          stroke="#b6b6b6"
+          stroke-width="1.5"
+        ></path>
+      </svg>
+    </div>
+    <div class="items-selected">{{ selectedItems.size }}</div>
+    <div class="title">selected</div>
+  </div>
+  <div class="rigth-side" (click)="toggleMenu($event)">
+    <svg
+      class="dropdown-icon"
+      [ngClass]="{ rotated: isOpen }"
+      width="24"
+      height="25"
+      viewBox="0 0 24 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M12 15.5L7 10.5H17L12 15.5Z" fill="#ededed" />
+    </svg>
+  </div>
+</div>
+<!-- Menu dropdown -->
+<menu
+  class="dropdown-menu-list-container"
+  *ngIf="isOpen"
+  role="listbox"
+  aria-label="Dropdonw menu"
+>
+  <ul class="dropdown-menu-list" role="presentation">
+    <li
+      *ngFor="let i of menuItems; trackby: trackByItem"
+      class="dropdown-menu-list-item"
+      (click)="onSelectItem(i)"
+      [class.selected]="isItemSelected(i)"
+    >
+      <div class="menu-selected-accesibility">
+        <input
+          type="checkbox"
+          name="select-item"
+          title="selected menu item"
+          [checked]="isItemSelected(i)"
+        />
+        <span class="item-selected-color"></span>
+      </div>
+      <div class="item-selected">{{ i }}</div>
+    </li>
+    <!-- <li *ngFor="let i of menuItems" class="menu-item">
       <span [innerHTML]="i | destruct : 'v'" class="menu-item-k"></span>
       <span class="menu-item-v">{{ i | destruct : "k" }}</span>
-    </li>
+    </li> -->
   </ul>
 </menu>

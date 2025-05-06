@@ -9,6 +9,18 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class FilterComponent {
   filterValue: string = '';
+  // Basic filter options to sort the list of colors.
+    items: string[] = [
+      'title',
+      'description',
+      'color',
+      'category',
+      'stars',
+      'rate',
+      'updatedAt',
+      'createdAt',
+      'status',
+    ];
 
   constructor(
     private _store: Store,
@@ -16,14 +28,8 @@ export class FilterComponent {
     private cd: ChangeDetectorRef
   ) {}
 
-  handleItemSelected(e: string): void {
-    console.log('value handled', e);
-    if (e) {
-      this.filterValue = e;
-      this.cd.detectChanges();
-
-      // dispatch the action to filter the tasks
-      this._store.dispatch(this._filterActions.setFiltersValuesArray(e.toUpperCase()));
-    }
+  handleItemSelected(e: string[]): void {
+    // TODO("implement the filter acction to filters colors by the array of filter values selected")
+    console.log(e);
   }
 }
