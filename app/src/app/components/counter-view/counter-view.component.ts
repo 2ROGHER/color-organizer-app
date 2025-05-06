@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../models/interfaces';
 import Color from '../../models/domain/color.model';
+import { selectFilteredColors } from '../../ngrx/selectors/filters.selector';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-counter-view',
@@ -22,13 +24,11 @@ import Color from '../../models/domain/color.model';
  */
 export class CounterViewComponent {
   length: number = 0; // define the length of the elements
-  limit: number = 15; // define the limit
-  constructor(private readonly _store: Store<AppState>) {
-    this._store
-      .select((state) => state.colors)
-      ?.subscribe((res) => {
-        let colors = res;
-        console.log(res);
-      });
+  limit: number = 16; // define the limit
+  colors$!: Observable<Color[]>;
+
+  constructor(private readonly __store: Store<AppState>) {
+    this.colors$ = this.__store.select(selectFilteredColors);
+
   }
 }

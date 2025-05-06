@@ -14,4 +14,8 @@
     background: $base-card-color;
     @include gap-center;
   }
+
+  li.drag-over {
+    background: red;
+  }
 }

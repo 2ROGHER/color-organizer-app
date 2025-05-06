@@ -1,7 +1,7 @@
 <div class="counter-view" aria-label="Counter color view">
   <ng-container>
-    <span class="count">{{ length }}</span>
+    <span class="count">{{ colors$ | async | size }}</span>
     <span class="dash-line">/</span>
-    <span class="limit">{{ length }}</span>
+    <span class="limit">{{ limit }}</span>
   </ng-container>
 </div>

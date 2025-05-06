@@ -1,9 +1,6 @@
 <main class="main-app">
   <section class="side-bar">
-    <app-navbar
-      [activeForm]="isActive"
-      (activeFormEmitter)="handleSetActiveForm($event)"
-    ></app-navbar>
+    <app-navbar></app-navbar>
   </section>
 
   <main class="main">
@@ -12,16 +9,9 @@
       <app-search-bar></app-search-bar>
     </div>
 
-    <div class="to-login-component">
+    <!-- <div class="to-login-component">
       <app-to-login></app-to-login>
-    </div>
-
-    <!-- <section class="color-form">
-      <app-create-color-form
-        *ngIf="isActive && true"
-        (activeFormEmitter)="handleSetActiveForm($event)"
-      ></app-create-color-form>
-    </section> -->
+    </div> -->
 
     <!-- This section contains the list of colors -->
     <div class="main-colors-section">

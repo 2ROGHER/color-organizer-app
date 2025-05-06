@@ -17,8 +17,8 @@ export const selectColors = createSelector(
 export const selectFilters = createFeatureSelector<IFilter<string>>('filters');
 
 export const selectFilteredColors = createSelector(
-  selectColors,
-  selectFilters,
+  selectColors, // select the [colors] state by the reducers
+  selectFilters, // Select the [filters] state by the reducers
   (colors: Color[], filters: IFilter<string>) => {
     // 1. If the array of colors is empty, return an empty array
     if (!colors.length) return [];

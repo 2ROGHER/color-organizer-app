@@ -34,6 +34,7 @@ import { TrackNavigationComponent } from './components/track-navigation/track-na
 import { BreadcrumbService } from './services/breadcrumbs/breadcrumb.service';
 import { ColorDetailsComponent } from './pages/color-details/color-details.component';
 import { PaginationService } from './services/pagination/pagination.service';
+import { SizePipe } from './pipes/size.pipe';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { PaginationService } from './services/pagination/pagination.service';
     CounterViewComponent,
     TrackNavigationComponent,
     ColorDetailsComponent,
+    SizePipe,
 
 
 

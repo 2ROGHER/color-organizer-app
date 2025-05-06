@@ -14,22 +14,20 @@ import { ColorStatus } from '../../models/enums/color-status.interface';
 })
 export class HomePageComponent implements OnInit {
   colors$!: Observable<Color[] | undefined>;
-  isActive: boolean = true;
-
   count$!: Observable<number>;
 
   colorsList$!: Observable<Color[]>;
 
   // This life-cycle hook is executed when the component is created.
   constructor(
-    private readonly _colorsActions: ColorsActions,
-    private readonly _filtersActions: FilterActions,
-    private _store: Store
+    private readonly __colorsActions: ColorsActions,
+    private readonly __filtersActions: FilterActions,
+    private __store: Store
   ) {
     // Select all colors registered at the store.
-    // this.count$ = this._store.select(selectColorCount);
-    // this._store.dispatch(this._filtersActions.setFilterValue(ColorStatus.DEFAULT)); // 1.First we need to [dispatch]
-    this.colors$ = this._store.select(selectFilteredColors); // We need to select the filter colors
+    // this.count$ = this.__store.select(selectColorCount);
+    // this.__store.dispatch(this.__filtersActions.setFilterValue(ColorStatus.DEFAULT)); // 1.First we need to [dispatch]
+    this.colors$ = this.__store.select(selectFilteredColors); // We need to select the filter colors
   }
 
   ngOnInit() {
@@ -38,15 +36,11 @@ export class HomePageComponent implements OnInit {
     // Here we need to (subsribe) to watch or listen the updates at reducer when any chages
     // happens ant reducer.
 
-    //this._store.dispatch(this._colorsActions.getAllColors()); // Then we need to dipatch the action to get all videso from store
-    //this.colors$ = this._store.select(selectFilteredColors); // we need to subscribe to (store) to listen changes at reducers' sate
-  }
-  handleSetActiveForm(e: boolean): void {
-    // this.isActive = true;
-    this.isActive = e;
+    //this.__store.dispatch(this.__colorsActions.getAllColors()); // Then we need to dipatch the action to get all videso from store
+    //this.colors$ = this.__store.select(selectFilteredColors); // we need to subscribe to (store) to listen changes at reducers' sate
   }
 
   handleSearchTask(s: string): void {
-    this._store.dispatch(this._filtersActions.setSearchTerm(s));
+    this.__store.dispatch(this.__filtersActions.setSearchTerm(s));
   }
 }

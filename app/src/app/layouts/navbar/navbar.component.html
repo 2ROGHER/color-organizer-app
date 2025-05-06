@@ -4,7 +4,11 @@
   </div>
 
   <div class="menu">
-    <ul class="menu-list">
+    <ul
+      class="menu-list"
+      (dragover)="onDragOver($event)"
+      (drop)="onDrop($event)"
+    >
       <!-- We need to use this [routerLinkActive="" ] in a parent to <a> element-->
       <li
         class="menu-item"
@@ -39,7 +43,7 @@
         </button>
       </li>
       <li class="menu-item">
-        <button class="btn-archive" title="btn-archive">
+        <button class="btn-archive" title="Arichived colors" aria-label="Archived colors">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -228,10 +232,7 @@
         </svg>
       </li>
       <li class="separator"></li>
-      <li class="helper-item">
-
-
-      </li>
+      <li class="helper-item"></li>
     </ul>
   </div>
 </section>

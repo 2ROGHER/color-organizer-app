@@ -4,5 +4,8 @@
       <a [routerLink]="b.url">{{ b.label }}</a>
     </ng-container>
     <span *ngIf="last">{{ b.label }}</span>
+    <pre>{{ last | json }} {{ b.url | json }}</pre>
+    <h1>navigation bar or breadcrumbs</h1>
   </ng-container>
+
 </nav>

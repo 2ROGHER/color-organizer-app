@@ -1,6 +1,8 @@
 import {
   Component,
   EventEmitter,
+  HostBinding,
+  HostListener,
   Output,
   ViewEncapsulation,
 } from '@angular/core';
@@ -45,6 +47,11 @@ export class CreateColorFormComponent {
   // code base
   @Output()
   activeFormEmitter: EventEmitter<any> = new EventEmitter();
+
+  @HostListener('dragstart', ['$event'])
+  onDragStart(e: Event, i: number): void {
+    e.preventDefault();
+  }
 
   constructor(
     private readonly _colorsAction: ColorsActions,

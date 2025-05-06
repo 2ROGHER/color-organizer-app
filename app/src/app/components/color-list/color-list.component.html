@@ -1,10 +1,37 @@
 <section class="colors">
-  <ul class="colors-list">
-    <!-- # Create form section-->
-    <app-create-color-form></app-create-color-form>
-
+  <!-- Here we have a list of colors  applying the [drog and drop functionality with angular]-->
+  <!--
+    (dragover) => This event allow us to drag the element in this specific [area]
+    (drop) => This event is executed when we drop the element in this specific [area] in this case this [ul] element
+  -->
+  <ul
+    class="colors-list"
+    aria-label="List of colors"
+    (dragover)="onDragOver($event)"
+    (drop)="onDrop($event)"
+  >
+    <!-- # Create form section -->
+      <app-create-color-form draggable="false" (dragstart)="$event.preventDefault()"></app-create-color-form>
     <!-- # List of colors -->
-    <li class="colors-item" *ngFor="let c of colors; let k = index">
+    <!--
+      [attr.data-index] => This attribute is used to set the index of the color in the list. This save the index in the DOM element
+      draggable => This attribute allow us to drag the element setting the value to [true]
+      (dragstart) => This event is excecuted when we start to drag the element
+      (dragenter) => This event is executed when we enter or when we drag the element over the any [li] elements
+      (dragend) => This event is excecuted when we end to drag the element or when we drop the element or when we cancel the  drag, we clear the state
+      [class.drag-over] => This way is used to add a class dinamically to the [li] element, in this case
+      we add a class if the <li> element is posible destination of drop the element.
+    -->
+    <li
+      class="colors-item"
+      *ngFor="let c of colors; let k = index"
+      [attr.data-index]="k"
+      draggable="true"
+      (dragstart)="onDragStart($event, k)"
+      (dragenter)="onDragEnter($event, k)"
+      (dragend)="onDragEnd()"
+      [class.drag-over]="k === dragOverIndex"
+    >
       <!-- Now if we want to custmize the componente with [content projection] we need to add the [projection] here-->
       <app-color [color]="c">
         <!-- # Projections with Angular -->
