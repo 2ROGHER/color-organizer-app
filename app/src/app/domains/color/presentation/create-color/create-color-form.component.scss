@@ -1,0 +1,72 @@
+@use "../../../../../styles/index.scss" as *;
+
+
+.color-form {
+  width: calc(220 / 16) + rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border: 1px solid $base-border-color;
+  border-radius: calc(4 / 16) + rem;
+  padding: 1rem;
+  gap: calc(14 / 16) + rem;
+  height: calc(340 / 16) + rem;
+  background: $base-card-color;
+
+  &-header {
+    div input[type="color"] {
+      -webkit-appearance: none;
+      block-size: 50px;
+      border: 1px solid #999;
+      padding: 0;
+    }
+    div input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+
+    div input[type="color"]::-webkit-color-swatch {
+      border: none;
+      border-radius: 50%;
+    }
+  }
+
+  &-body {
+    width: 100%;
+    @include flex-item-align(column, center, center);
+    gap: calc(14 / 16) + rem;
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+      color: $base-active-color-text;
+      font-size: calc(24 / 16) + rem;
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    input[name="hex-value"] {
+      font-family: $base-font-family-cascadia-code;
+    }
+
+    input[name="name"] {
+      font-family: $base-font-family;
+      text-transform: uppercase;
+    }
+
+    input[name="hex-value"]::placeholder,
+    input[name="name"]::placeholder {
+      color: $base-inactive-color-text;
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+
+  &-create {
+    button {
+      @include view-button($base-enable-bg-color, #222222, $base-border-box);
+    }
+  }
+}

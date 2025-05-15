@@ -1,0 +1,77 @@
+@use '../../../../../styles/index.scss' as *;
+
+.color {
+  position: relative;
+  // background: red;
+
+  width: calc(220 / 16) + rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border: 1px solid $base-border-color;
+  border-radius: calc(4 / 16) + rem;
+  padding: 1rem;
+  gap: calc(14 / 16) + rem;
+  height: calc(340 / 16) + rem;
+  background: $base-card-color;
+
+  .options {
+    @include flex-item-align(row, center, space-between);
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    div button {
+      @include no-btn();
+      @include flex-item-align(row, center, center);
+      padding: calc(8 / 16) + rem;
+    }
+
+    .delete-opt:hover {
+      background: #270702;
+      border-radius: 100%;
+    }
+
+    .toggle-opt:hover {
+      background: $base-hover-color;
+      border-radius: $base-border-box;
+
+      button svg {
+        color: $base-active-color-text;
+      }
+    }
+  }
+  &-header {
+  }
+
+  &-body {
+    @include flex-item-align(column, center, center);
+    gap: calc(6 / 16) + rem;
+    text-transform: uppercase;
+  }
+  &-hexvalue {
+    font-family: $base-font-family-cascadia-code;
+    cursor: pointer;
+  }
+
+  .view-more {
+    a {
+      font-size: 1rem;
+      background: $base-able-bg-color;
+      color: $base-bg-app;
+      text-transform: capitalize;
+      padding: calc(6 / 16) + rem calc(12 / 16) + rem;
+      font-weight: 550;
+      border-radius: $base-border-box;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.dropdown-menu {
+  position: absolute;
+  right: 16px;
+  top: 54px;
+}

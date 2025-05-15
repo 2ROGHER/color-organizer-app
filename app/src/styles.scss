@@ -1,7 +1,7 @@
-@use "./app/styles/utils/variables" as *; // without prefix and we are using from 'variables'
+@use "./styles/utils/variables" as *; // without prefix and we are using from 'variables'
 
-@use "./app/styles/helpers/functions" as *;
-@use "./app/styles/helpers//mixins" as *;
+@use "./styles/helpers/functions" as *;
+@use "./styles/helpers/mixins" as *;
 
 // REmove paddings and margins from the element taking the [box model]
 *::before,

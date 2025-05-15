@@ -1,0 +1,30 @@
+@use "../../../../styles/index.scss" as *;
+
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 0 12px;
+}
+.search-box {
+  overflow: hidden;
+}
+
+.search div input {
+  padding: 12px 16px;
+  background: $base-bg-color;
+  border:none;
+  color: red;
+  outline: none;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 500px; /*Fixed this [width] rule to expand al container*/
+}
+
+
+.search-icon span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

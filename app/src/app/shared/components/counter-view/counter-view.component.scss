@@ -1,0 +1,12 @@
+@use "../../../../styles/index.scss" as *;
+
+.counter-view {
+  position: relative;
+  padding: calc(4 / 16) + rem calc(8 / 16) + rem;
+  background: #FCE87B;
+  border-radius: 50px 50px;
+  gap: 0.5rem;
+  @include flex-item-align(row, center, center);
+  color: $base-bg-color;
+  font-family: $base-font-family-cascadia-code;
+}

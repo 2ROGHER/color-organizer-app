@@ -1,0 +1,130 @@
+<form class="auth-form" [formGroup]="authForm" (ngSubmit)="onSubmit($event)">
+  <div class="login-logo">
+    <!-- <app-logo [w]="'64'"></app-logo> -->
+  </div>
+  <h1 class="login-title">Color Organizer App Login</h1>
+  <fieldset>
+    <div class="username">
+      <input
+        id="username"
+        type="text"
+        formControlName="username"
+        (keyup.enter)="onSubmit($event)"
+        class="username-input"
+        name="username"
+        placeholder="username"
+        required
+      />
+    </div>
+
+    <div class="password">
+      <input
+        id="pwd"
+        type="password"
+        formControlName="password"
+        (keyup.enter)="onSubmit($event)"
+        class="password-input"
+        name="password"
+        placeholder="password"
+        required
+      />
+    </div>
+    <div class="forget-pwd">
+      <a href="#">forget password</a>
+    </div>
+    <div class="btn__login">
+      <button class="btn__login" type="submit" (click)="onSubmit($event)">
+        login
+      </button>
+    </div>
+  </fieldset>
+
+  <div class="register-box">
+    <span>Don't have any account yet ?</span>
+    <a href="/register">register</a>
+  </div>
+
+  <div class="or-separator">or</div>
+
+  <section class="register-pack">
+    <div class="google-auth">
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 256 256"
+        >
+          <path
+            fill="#1877F2"
+            d="M256 128C256 57.308 198.692 0 128 0S0 57.308 0 128c0 63.888 46.808 116.843 108 126.445V165H75.5v-37H108V99.8c0-32.08 19.11-49.8 48.348-49.8C170.352 50 185 52.5 185 52.5V84h-16.14C152.959 84 148 93.867 148 103.99V128h35.5l-5.675 37H148v89.445c61.192-9.602 108-62.556 108-126.445"
+          />
+          <path
+            fill="#FFF"
+            d="m177.825 165l5.675-37H148v-24.01C148 93.866 152.959 84 168.86 84H185V52.5S170.352 50 156.347 50C127.11 50 108 67.72 108 99.8V128H75.5v37H108v89.445A129 129 0 0 0 128 256a129 129 0 0 0 20-1.555V165z"
+          />
+        </svg>
+      </span>
+      <span>facebook</span>
+    </div>
+    <div class="facebook-auth">
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 128 128"
+        >
+          <path
+            fill="#fff"
+            d="M44.59 4.21a63.28 63.28 0 0 0 4.33 120.9a67.6 67.6 0 0 0 32.36.35a57.13 57.13 0 0 0 25.9-13.46a57.44 57.44 0 0 0 16-26.26a74.3 74.3 0 0 0 1.61-33.58H65.27v24.69h34.47a29.72 29.72 0 0 1-12.66 19.52a36.2 36.2 0 0 1-13.93 5.5a41.3 41.3 0 0 1-15.1 0A37.2 37.2 0 0 1 44 95.74a39.3 39.3 0 0 1-14.5-19.42a38.3 38.3 0 0 1 0-24.63a39.25 39.25 0 0 1 9.18-14.91A37.17 37.17 0 0 1 76.13 27a34.3 34.3 0 0 1 13.64 8q5.83-5.8 11.64-11.63c2-2.09 4.18-4.08 6.15-6.22A61.2 61.2 0 0 0 87.2 4.59a64 64 0 0 0-42.61-.38"
+          />
+          <path
+            fill="#e33629"
+            d="M44.59 4.21a64 64 0 0 1 42.61.37a61.2 61.2 0 0 1 20.35 12.62c-2 2.14-4.11 4.14-6.15 6.22Q95.58 29.23 89.77 35a34.3 34.3 0 0 0-13.64-8a37.17 37.17 0 0 0-37.46 9.74a39.25 39.25 0 0 0-9.18 14.91L8.76 35.6A63.53 63.53 0 0 1 44.59 4.21"
+          />
+          <path
+            fill="#f8bd00"
+            d="M3.26 51.5a63 63 0 0 1 5.5-15.9l20.73 16.09a38.3 38.3 0 0 0 0 24.63q-10.36 8-20.73 16.08a63.33 63.33 0 0 1-5.5-40.9"
+          />
+          <path
+            fill="#587dbd"
+            d="M65.27 52.15h59.52a74.3 74.3 0 0 1-1.61 33.58a57.44 57.44 0 0 1-16 26.26c-6.69-5.22-13.41-10.4-20.1-15.62a29.72 29.72 0 0 0 12.66-19.54H65.27c-.01-8.22 0-16.45 0-24.68"
+          />
+          <path
+            fill="#319f43"
+            d="M8.75 92.4q10.37-8 20.73-16.08A39.3 39.3 0 0 0 44 95.74a37.2 37.2 0 0 0 14.08 6.08a41.3 41.3 0 0 0 15.1 0a36.2 36.2 0 0 0 13.93-5.5c6.69 5.22 13.41 10.4 20.1 15.62a57.13 57.13 0 0 1-25.9 13.47a67.6 67.6 0 0 1-32.36-.35a63 63 0 0 1-23-11.59A63.7 63.7 0 0 1 8.75 92.4"
+          />
+        </svg>
+      </span>
+      <span>google</span>
+    </div>
+    <div class="github-auth">
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill="currentColor"
+            d="M8 .198a8 8 0 0 0-2.529 15.591c.4.074.547-.174.547-.385c0-.191-.008-.821-.011-1.489c-2.226.484-2.695-.944-2.695-.944c-.364-.925-.888-1.171-.888-1.171c-.726-.497.055-.486.055-.486c.803.056 1.226.824 1.226.824c.714 1.223 1.872.869 2.328.665c.072-.517.279-.87.508-1.07c-1.777-.202-3.645-.888-3.645-3.954c0-.873.313-1.587.824-2.147c-.083-.202-.357-1.015.077-2.117c0 0 .672-.215 2.201.82A7.7 7.7 0 0 1 8 4.066c.68.003 1.365.092 2.004.269c1.527-1.035 2.198-.82 2.198-.82c.435 1.102.162 1.916.079 2.117c.513.56.823 1.274.823 2.147c0 3.073-1.872 3.749-3.653 3.947c.287.248.543.735.543 1.481c0 1.07-.009 1.932-.009 2.195c0 .213.144.462.55.384A8 8 0 0 0 8.001.196z"
+          />
+        </svg>
+      </span>
+      <span>github</span>
+    </div>
+  </section>
+</form>
+
+<footer>
+  <div class="footer-login">
+    <!-- <app-footer></app-footer> -->
+  </div>
+</footer>
+
+<!--
+<pre>
+  <code>{{ authForm.value | json }}</code>
+</pre> -->

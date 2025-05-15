@@ -1,0 +1,53 @@
+@use "../../../../../styles/index.scss" as *; //without prefix
+
+.main-app {
+  position: relative;
+  .side-bar {
+    // width: 84px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 100vh;
+    // padding: 4 8px;
+
+    .drag-over {
+      background: #1f1528;
+    }
+  }
+  .main {
+    // done
+    position: relative;
+    margin-left: calc(96 / 16) + rem;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-searchbar {
+
+    }
+
+    &-colors-section {
+      @include flex-item-align(column, center)// align items to center
+    }
+
+    &-filter-bar {
+      width: 100% !important;
+    }
+    &-track-navigation {
+      position: relative;
+      width: 100% !important;
+
+    }
+  }
+
+  
+
+}
+
+.to-login-component {
+  position: absolute;
+  right: 10%;
+  top: calc((74px + 32px) / 2);
+}
